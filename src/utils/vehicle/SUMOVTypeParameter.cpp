@@ -277,7 +277,6 @@ SUMOVTypeParameter::VClassDefaultValues::VClassDefaultValues(SUMOVehicleClass vc
         case SVC_VIP:
         case SVC_PASSENGER:
         case SVC_HOV:
-        case SVC_CUSTOM1:
         case SVC_CUSTOM2:
             shape = SUMOVehicleShape::PASSENGER;
             speedFactor.setParameter(1, 0.1);
@@ -303,6 +302,17 @@ SUMOVTypeParameter::VClassDefaultValues::VClassDefaultValues(SUMOVehicleClass vc
             // Airbus A380
             shape = SUMOVehicleShape::AIRCRAFT;
             width = 79.8;
+            break;
+        case SVC_CUSTOM1:
+            shape = SUMOVehicleShape::EVTOL;
+            width = 2.4;
+            height = 3.2;
+            maxSpeed = 320. / 3.6;
+            desiredMaxSpeed = 240. / 3.6;
+            personCapacity = 4;
+            emissionClass = PollutantsInterface::getClassByName(EMPREFIX + "zero", vclass);
+            mass = 2200.;
+            speedFactor.setParameter(1, 0.05);
             break;
         case SVC_SHIP:
             width = 4;
@@ -936,6 +946,8 @@ SUMOVTypeParameter::getDefaultAccel(const SUMOVehicleClass vc) {
             return 0.5;
         case SVC_SHIP:
             return 0.1;
+        case SVC_CUSTOM1:
+            return 3.5;
         default:
             return 2.6;//2.9;
     }
@@ -969,6 +981,8 @@ SUMOVTypeParameter::getDefaultDecel(const SUMOVehicleClass vc) {
             return 1.3;
         case SVC_SHIP:
             return 0.15;
+        case SVC_CUSTOM1:
+            return 4.0;
         default:
             return 4.5;//7.5;
     }
@@ -1008,6 +1022,9 @@ SUMOVTypeParameter::getDefaultEmergencyDecel(const SUMOVehicleClass vc, double d
             case SVC_SHIP:
                 vcDecel = 1.;
                 break;
+            case SVC_CUSTOM1:
+                vcDecel = 6.;
+                break;
             default:
                 vcDecel = 9.;
         }
@@ -1031,6 +1048,7 @@ SUMOVTypeParameter::getDefaultImperfection(const SUMOVehicleClass vc) {
         case SVC_RAIL_ELECTRIC:
         case SVC_RAIL_FAST:
         case SVC_SHIP:
+        case SVC_CUSTOM1:
             return 0.;
         default:
             return 0.5;
@@ -1101,6 +1119,7 @@ SUMOVTypeParameter::getDefaultMaxAccelProfile(const SUMOVehicleClass vc, double 
         case SVC_RAIL_ELECTRIC:
         case SVC_RAIL_FAST:
         case SVC_SHIP:
+        case SVC_CUSTOM1:
         default:
             return result;
     }
@@ -1125,6 +1144,7 @@ SUMOVTypeParameter::getDefaultDesAccelProfile(const SUMOVehicleClass vc, double 
         case SVC_RAIL_ELECTRIC:
         case SVC_RAIL_FAST:
         case SVC_SHIP:
+        case SVC_CUSTOM1:
         default:
             return result;
     }

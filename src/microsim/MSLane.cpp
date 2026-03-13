@@ -1784,8 +1784,9 @@ MSLane::detectCollisions(SUMOTime timestep, const std::string& stage) {
             }
 #endif
             if (leader.first != 0 && leader.second < length && !leader.first->isJammed()) {
-                if (v->getVehicleType().getGuiShape() == SUMOVehicleShape::AIRCRAFT) {
-                    // aircraft wings and body are above walking level
+                if (v->getVehicleType().getGuiShape() == SUMOVehicleShape::AIRCRAFT
+                        || v->getVehicleType().getGuiShape() == SUMOVehicleShape::EVTOL) {
+                    // aerial vehicles are above walking level
                     continue;
                 }
                 const double gap = leader.second - length;

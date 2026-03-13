@@ -109,7 +109,9 @@ enum class SUMOVehicleShape {
     /// @brief render as a scooter
     SCOOTER,
     /// @brief render as aircraft
-    AIRCRAFT
+    AIRCRAFT,
+    /// @brief render as an electric vertical take-off and landing aircraft
+    EVTOL
 };
 
 
@@ -220,7 +222,7 @@ enum SUMOVehicleClass : int64_t {
     /// @brief public transport
     SVC_PUBLIC_CLASSES = SVC_BUS | SVC_RAIL_CLASSES | SVC_CABLE_CAR | SVC_AIRCRAFT,
     /// @brief classes which (normally) do not drive on normal roads
-    SVC_NON_ROAD_RAIL = SVC_SHIP | SVC_AIRCRAFT | SVC_DRONE | SVC_CONTAINER,
+    SVC_NON_ROAD_RAIL = SVC_SHIP | SVC_AIRCRAFT | SVC_DRONE | SVC_CUSTOM1 | SVC_CONTAINER,
     SVC_NON_ROAD = SVC_RAIL_CLASSES | SVC_NON_ROAD_RAIL,
     SVC_VULNERABLE = SVC_PEDESTRIAN | SVC_WHEELCHAIR | SVC_BICYCLE | SVC_SCOOTER,
     /// @brief classes which drive on roads

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
+    <node id="airH1W" x="-40.0" y="50.0" type="priority"/>
+    <node id="airH1E" x="940.0" y="50.0" type="priority"/>
+    <node id="airH2W" x="-40.0" y="250.0" type="priority"/>
+    <node id="airH2E" x="940.0" y="250.0" type="priority"/>
+    <node id="airH3W" x="-40.0" y="450.0" type="priority"/>
+    <node id="airH3E" x="940.0" y="450.0" type="priority"/>
+    <node id="airH4W" x="-40.0" y="650.0" type="priority"/>
+    <node id="airH4E" x="940.0" y="650.0" type="priority"/>
+
+    <node id="airV1S" x="150.0" y="-40.0" type="priority"/>
+    <node id="airV1N" x="150.0" y="940.0" type="priority"/>
+    <node id="airV2S" x="350.0" y="-40.0" type="priority"/>
+    <node id="airV2N" x="350.0" y="940.0" type="priority"/>
+    <node id="airV3S" x="550.0" y="-40.0" type="priority"/>
+    <node id="airV3N" x="550.0" y="940.0" type="priority"/>
+    <node id="airV4S" x="750.0" y="-40.0" type="priority"/>
+    <node id="airV4N" x="750.0" y="940.0" type="priority"/>
+</nodes>

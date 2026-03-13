@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edges xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/edges_file.xsd">
+    <edge id="road_w2e" from="roadW" to="roadE" numLanes="2" speed="16.67"/>
+    <edge id="road_e2w" from="roadE" to="roadW" numLanes="2" speed="16.67"/>
+
+    <edge id="air_w2e" from="airW" to="airE" numLanes="1" speed="55.56" allow="evtol"/>
+    <edge id="air_e2w" from="airE" to="airW" numLanes="1" speed="55.56" allow="evtol"/>
+</edges>

@@ -1572,6 +1572,7 @@ GNELane::getColorValue(const GUIVisualizationSettings& s, int activeScheme) cons
                     return 8;
                 case SVC_AIRCRAFT:
                 case SVC_DRONE:
+                case SVC_CUSTOM1:
                     return 12;
                 default:
                     break;

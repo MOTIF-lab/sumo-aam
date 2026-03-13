@@ -333,7 +333,7 @@ GNEVClassesDialog::builder() {
     myVClassMap[SVC_CONTAINER] = new VClassRow(vehiclesRightFrame, SVC_CONTAINER, GUIIcon::VCLASS_CONTAINER, TL("A transport container"));
     myVClassMap[SVC_AIRCRAFT] = new VClassRow(vehiclesRightFrame, SVC_AIRCRAFT, GUIIcon::VCLASS_AIRCRAFT, TL("An airplane"));
     myVClassMap[SVC_DRONE] = new VClassRow(vehiclesRightFrame, SVC_DRONE, GUIIcon::VCLASS_DRONE, TL("A small unmanned robot"));
-    myVClassMap[SVC_CUSTOM1] = new VClassRow(vehiclesRightFrame, SVC_CUSTOM1, GUIIcon::VCLASS_CUSTOM1, TL("Reserved for user-defined semantics"));
+    myVClassMap[SVC_CUSTOM1] = new VClassRow(vehiclesRightFrame, SVC_CUSTOM1, GUIIcon::VCLASS_CUSTOM1, TL("An electric vertical take-off and landing aircraft"));
     myVClassMap[SVC_CUSTOM2] = new VClassRow(vehiclesRightFrame, SVC_CUSTOM2, GUIIcon::VCLASS_CUSTOM2, TL("Reserved for user-defined semantics"));
     // reset dialog
     onCmdReset(nullptr, 0, nullptr);

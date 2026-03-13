@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-03-12T20:16:33.147789-05:00 by Eclipse SUMO netconvert v1.26.0-0000000000
+<netconvertConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <node-files value="scenarios/evtol_demo/evtol_demo.nod.xml"/>
+        <edge-files value="scenarios/evtol_demo/evtol_demo.edg.xml"/>
+    </input>
+
+    <output>
+        <output-file value="scenarios/evtol_demo/evtol_demo.net.xml"/>
+    </output>
+
+</netconvertConfiguration>
+-->
+
+<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,600.00,120.00" origBoundary="0.00,0.00,600.00,120.00" projParameter="!"/>
+
+    <edge id=":airE_0" function="internal">
+        <lane id=":airE_0_0" index="0" allow="evtol" speed="3.65" length="4.67" shape="600.00,118.40 601.20,119.20 601.60,120.00 601.20,120.80 600.00,121.60"/>
+    </edge>
+    <edge id=":airW_0" function="internal">
+        <lane id=":airW_0_0" index="0" allow="evtol" speed="3.65" length="4.67" shape="0.00,121.60 -1.20,120.80 -1.60,120.00 -1.20,119.20 0.00,118.40"/>
+    </edge>
+    <edge id=":roadE_0" function="internal">
+        <lane id=":roadE_0_0" index="0" speed="3.65" length="4.67" shape="600.00,-1.60 601.20,-0.80 601.60,0.00 601.20,0.80 600.00,1.60"/>
+    </edge>
+    <edge id=":roadW_0" function="internal">
+        <lane id=":roadW_0_0" index="0" speed="3.65" length="4.67" shape="0.00,1.60 -1.20,0.80 -1.60,0.00 -1.20,-0.80 0.00,-1.60"/>
+    </edge>
+
+    <edge id="air_e2w" from="airE" to="airW" priority="-1">
+        <lane id="air_e2w_0" index="0" allow="evtol" speed="55.56" length="600.00" shape="600.00,121.60 0.00,121.60"/>
+    </edge>
+    <edge id="air_w2e" from="airW" to="airE" priority="-1">
+        <lane id="air_w2e_0" index="0" allow="evtol" speed="55.56" length="600.00" shape="0.00,118.40 600.00,118.40"/>
+    </edge>
+    <edge id="road_e2w" from="roadE" to="roadW" priority="-1">
+        <lane id="road_e2w_0" index="0" speed="16.67" length="600.00" shape="600.00,4.80 0.00,4.80"/>
+        <lane id="road_e2w_1" index="1" speed="16.67" length="600.00" shape="600.00,1.60 0.00,1.60"/>
+    </edge>
+    <edge id="road_w2e" from="roadW" to="roadE" priority="-1">
+        <lane id="road_w2e_0" index="0" speed="16.67" length="600.00" shape="0.00,-4.80 600.00,-4.80"/>
+        <lane id="road_w2e_1" index="1" speed="16.67" length="600.00" shape="0.00,-1.60 600.00,-1.60"/>
+    </edge>
+
+    <junction id="airE" type="priority" x="600.00" y="120.00" incLanes="air_w2e_0" intLanes=":airE_0_0" shape="600.00,120.00 600.00,116.80 600.00,120.00">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="airW" type="priority" x="0.00" y="120.00" incLanes="air_e2w_0" intLanes=":airW_0_0" shape="0.00,120.00 0.00,123.20 0.00,120.00">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="roadE" type="priority" x="600.00" y="0.00" incLanes="road_w2e_0 road_w2e_1" intLanes=":roadE_0_0" shape="600.00,0.00 600.00,-6.40 600.00,0.00">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="roadW" type="priority" x="0.00" y="0.00" incLanes="road_e2w_0 road_e2w_1" intLanes=":roadW_0_0" shape="0.00,0.00 0.00,6.40 0.00,0.00">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+
+    <connection from="air_e2w" to="air_w2e" fromLane="0" toLane="0" via=":airW_0_0" dir="t" state="M"/>
+    <connection from="air_w2e" to="air_e2w" fromLane="0" toLane="0" via=":airE_0_0" dir="t" state="M"/>
+    <connection from="road_e2w" to="road_w2e" fromLane="1" toLane="1" via=":roadW_0_0" dir="t" state="M"/>
+    <connection from="road_w2e" to="road_e2w" fromLane="1" toLane="1" via=":roadE_0_0" dir="t" state="M"/>
+
+    <connection from=":airE_0" to="air_e2w" fromLane="0" toLane="0" dir="t" state="M"/>
+    <connection from=":airW_0" to="air_w2e" fromLane="0" toLane="0" dir="t" state="M"/>
+    <connection from=":roadE_0" to="road_e2w" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":roadW_0" to="road_w2e" fromLane="0" toLane="1" dir="t" state="M"/>
+
+</net>

@@ -79,13 +79,18 @@ static StringBijection<SUMOVehicleClass>::Entry sumoVehicleClassStringInitialize
     {"wheelchair",        SVC_WHEELCHAIR},
     {"scooter",           SVC_SCOOTER},
     {"drone",             SVC_DRONE},
-    {"custom1",           SVC_CUSTOM1},
+    {"evtol",             SVC_CUSTOM1},
     {"custom2",           SVC_CUSTOM2}
 };
 
 
 StringBijection<SUMOVehicleClass> SumoVehicleClassStrings(
     sumoVehicleClassStringInitializer, SVC_CUSTOM2, false);
+
+static bool custom1AliasInitializer = []() {
+    SumoVehicleClassStrings.addAlias("custom1", SVC_CUSTOM1);
+    return true;
+}();
 
 // count only non-deprecated classes
 const int NUM_VCLASSES = SumoVehicleClassStrings.size() - 8;
@@ -133,6 +138,7 @@ static StringBijection<SUMOVehicleShape>::Entry sumoVehicleShapeStringInitialize
     {"rickshaw",              SUMOVehicleShape::RICKSHAW },
     {"scooter",               SUMOVehicleShape::SCOOTER},
     {"aircraft",              SUMOVehicleShape::AIRCRAFT},
+    {"evtol",                 SUMOVehicleShape::EVTOL},
     {"",                      SUMOVehicleShape::UNKNOWN}
 };
 
@@ -529,7 +535,7 @@ isWaterway(SVCPermissions permissions) {
 
 bool
 isAirway(SVCPermissions permissions) {
-    return permissions == SVC_AIRCRAFT || permissions == SVC_DRONE;
+    return permissions == SVC_AIRCRAFT || permissions == SVC_DRONE || permissions == SVC_CUSTOM1;
 }
 
 bool
@@ -600,6 +606,8 @@ getDefaultVehicleLength(const SUMOVehicleClass vc) {
             return 0.5;
         case SVC_AIRCRAFT:
             return 72.7;
+        case SVC_CUSTOM1:
+            return 6.2;
         default:
             return 5; /*4.3*/
     }

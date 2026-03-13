@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="cityCar" vClass="passenger" guiShape="passenger" color="0,110,220" accel="2.6" decel="4.5" sigma="0.4" length="4.8"/>
+    <vType id="gridEVTOL" vClass="evtol" guiShape="evtol" color="220,0,220" accel="3.5" decel="4.0" sigma="0.0" length="6.2" width="2.4" maxSpeed="69.44" personCapacity="4"/>
+
+    <route id="air_h1_w2e_route" edges="air_h1_w2e"/>
+    <route id="air_h1_e2w_route" edges="air_h1_e2w"/>
+    <route id="air_h2_w2e_route" edges="air_h2_w2e"/>
+    <route id="air_h2_e2w_route" edges="air_h2_e2w"/>
+    <route id="air_h3_w2e_route" edges="air_h3_w2e"/>
+    <route id="air_h3_e2w_route" edges="air_h3_e2w"/>
+    <route id="air_h4_w2e_route" edges="air_h4_w2e"/>
+    <route id="air_h4_e2w_route" edges="air_h4_e2w"/>
+    <route id="air_v1_s2n_route" edges="air_v1_s2n"/>
+    <route id="air_v1_n2s_route" edges="air_v1_n2s"/>
+    <route id="air_v2_s2n_route" edges="air_v2_s2n"/>
+    <route id="air_v2_n2s_route" edges="air_v2_n2s"/>
+    <route id="air_v3_s2n_route" edges="air_v3_s2n"/>
+    <route id="air_v3_n2s_route" edges="air_v3_n2s"/>
+    <route id="air_v4_s2n_route" edges="air_v4_s2n"/>
+    <route id="air_v4_n2s_route" edges="air_v4_n2s"/>
+
+    <flow id="car_row1_east" type="cityCar" from="A1B1" to="I1J1" begin="0" end="900" period="9"/>
+    <flow id="car_row3_east" type="cityCar" from="A3B3" to="I3J3" begin="0" end="900" period="10"/>
+    <flow id="car_row5_east" type="cityCar" from="A5B5" to="I5J5" begin="0" end="900" period="11"/>
+    <flow id="car_row7_east" type="cityCar" from="A7B7" to="I7J7" begin="0" end="900" period="12"/>
+
+    <flow id="car_row2_west" type="cityCar" from="J2I2" to="B2A2" begin="0" end="900" period="9"/>
+    <flow id="car_row4_west" type="cityCar" from="J4I4" to="B4A4" begin="0" end="900" period="10"/>
+    <flow id="car_row6_west" type="cityCar" from="J6I6" to="B6A6" begin="0" end="900" period="11"/>
+    <flow id="car_row8_west" type="cityCar" from="J8I8" to="B8A8" begin="0" end="900" period="12"/>
+
+    <flow id="car_colB_north" type="cityCar" from="B0B1" to="B8B9" begin="0" end="900" period="13"/>
+    <flow id="car_colD_north" type="cityCar" from="D0D1" to="D8D9" begin="0" end="900" period="14"/>
+    <flow id="car_colF_north" type="cityCar" from="F0F1" to="F8F9" begin="0" end="900" period="15"/>
+    <flow id="car_colH_north" type="cityCar" from="H0H1" to="H8H9" begin="0" end="900" period="16"/>
+
+    <flow id="car_colC_south" type="cityCar" from="C9C8" to="C1C0" begin="0" end="900" period="13"/>
+    <flow id="car_colE_south" type="cityCar" from="E9E8" to="E1E0" begin="0" end="900" period="14"/>
+    <flow id="car_colG_south" type="cityCar" from="G9G8" to="G1G0" begin="0" end="900" period="15"/>
+    <flow id="car_colI_south" type="cityCar" from="I9I8" to="I1I0" begin="0" end="900" period="16"/>
+
+    <flow id="evtol_h1_east" type="gridEVTOL" route="air_h1_w2e_route" begin="5" end="900" period="24"/>
+    <flow id="evtol_h2_east" type="gridEVTOL" route="air_h2_w2e_route" begin="9" end="900" period="26"/>
+    <flow id="evtol_v1_north" type="gridEVTOL" route="air_v1_s2n_route" begin="11" end="900" period="25"/>
+    <flow id="evtol_h3_east" type="gridEVTOL" route="air_h3_w2e_route" begin="13" end="900" period="28"/>
+    <flow id="evtol_v2_north" type="gridEVTOL" route="air_v2_s2n_route" begin="15" end="900" period="27"/>
+    <flow id="evtol_h1_west" type="gridEVTOL" route="air_h1_e2w_route" begin="17" end="900" period="27"/>
+    <flow id="evtol_h4_east" type="gridEVTOL" route="air_h4_w2e_route" begin="17" end="900" period="30"/>
+    <flow id="evtol_v3_north" type="gridEVTOL" route="air_v3_s2n_route" begin="19" end="900" period="29"/>
+    <flow id="evtol_h2_west" type="gridEVTOL" route="air_h2_e2w_route" begin="21" end="900" period="29"/>
+    <flow id="evtol_v1_south" type="gridEVTOL" route="air_v1_n2s_route" begin="23" end="900" period="28"/>
+    <flow id="evtol_v4_north" type="gridEVTOL" route="air_v4_s2n_route" begin="23" end="900" period="31"/>
+    <flow id="evtol_h3_west" type="gridEVTOL" route="air_h3_e2w_route" begin="25" end="900" period="31"/>
+    <flow id="evtol_v2_south" type="gridEVTOL" route="air_v2_n2s_route" begin="27" end="900" period="30"/>
+    <flow id="evtol_h4_west" type="gridEVTOL" route="air_h4_e2w_route" begin="29" end="900" period="33"/>
+    <flow id="evtol_v3_south" type="gridEVTOL" route="air_v3_n2s_route" begin="31" end="900" period="32"/>
+    <flow id="evtol_v4_south" type="gridEVTOL" route="air_v4_n2s_route" begin="35" end="900" period="34"/>
+</routes>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edges xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/edges_file.xsd">
+    <edge id="air_h1_w2e" from="airH1W" to="airH1E" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_h1_e2w" from="airH1E" to="airH1W" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_h2_w2e" from="airH2W" to="airH2E" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_h2_e2w" from="airH2E" to="airH2W" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_h3_w2e" from="airH3W" to="airH3E" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_h3_e2w" from="airH3E" to="airH3W" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_h4_w2e" from="airH4W" to="airH4E" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_h4_e2w" from="airH4E" to="airH4W" numLanes="1" speed="69.44" allow="evtol"/>
+
+    <edge id="air_v1_s2n" from="airV1S" to="airV1N" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_v1_n2s" from="airV1N" to="airV1S" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_v2_s2n" from="airV2S" to="airV2N" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_v2_n2s" from="airV2N" to="airV2S" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_v3_s2n" from="airV3S" to="airV3N" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_v3_n2s" from="airV3N" to="airV3S" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_v4_s2n" from="airV4S" to="airV4N" numLanes="1" speed="69.44" allow="evtol"/>
+    <edge id="air_v4_n2s" from="airV4N" to="airV4S" numLanes="1" speed="69.44" allow="evtol"/>
+</edges>

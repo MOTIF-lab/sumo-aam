@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="carType" vClass="passenger" guiShape="passenger" color="0,110,220" accel="2.6" decel="4.5" sigma="0.3" length="4.8"/>
+    <vType id="evtolType" vClass="evtol" guiShape="evtol" color="220,0,220" accel="3.5" decel="4.0" sigma="0.0" length="6.2" width="2.4" maxSpeed="55.56" personCapacity="4"/>
+
+    <route id="car_w2e" edges="road_w2e"/>
+    <route id="car_e2w" edges="road_e2w"/>
+    <route id="evtol_w2e" edges="air_w2e"/>
+    <route id="evtol_e2w" edges="air_e2w"/>
+
+    <flow id="carsEastbound" type="carType" route="car_w2e" begin="0" end="300" period="6"/>
+    <flow id="carsWestbound" type="carType" route="car_e2w" begin="0" end="300" period="7"/>
+    <flow id="evtolEastbound" type="evtolType" route="evtol_w2e" begin="5" end="300" period="18"/>
+    <flow id="evtolWestbound" type="evtolType" route="evtol_e2w" begin="12" end="300" period="22"/>
+</routes>

@@ -449,6 +449,9 @@ GNEVehicleTypeDialog::VTypeAttributes::VShapeRow::setVShapeLabelImage() {
         case SUMOVehicleShape::AIRCRAFT:
             myComboBoxShapeLabelImage->setIcon(GUIIconSubSys::getIcon(GUIIcon::VSHAPE_AIRCRAFT));
             break;
+        case SUMOVehicleShape::EVTOL:
+            myComboBoxShapeLabelImage->setIcon(GUIIconSubSys::getIcon(GUIIcon::VSHAPE_AIRCRAFT));
+            break;
         default:
             myComboBoxShapeLabelImage->setIcon(GUIIconSubSys::getIcon(GUIIcon::VCLASS_IGNORING));
             break;

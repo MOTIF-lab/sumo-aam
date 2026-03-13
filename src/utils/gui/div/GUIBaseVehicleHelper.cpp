@@ -97,6 +97,12 @@ static const double vehiclePoly_scooterBase3[] = { -.32, .6, .32, .6, .32, -.6, 
 
 static const double vehiclePoly_aircraft[] = {0.633, -0.500, 0.609, -0.465, 0.563, -0.460, 0.517, -0.168, 0.413, -0.156, 0.509, -0.053, 0.509, 0.053, 0.413, -0.156, 0.413, 0.156, 0.385, -0.101, 0.385, 0.101, 0.354, -0.058, 0.354, 0.058, 0.109, -0.050, 0.109, 0.050, 0, -0.003, 0, 0.003, 0, 0.003, 0.633, 0.500, 0.633, 0.500, 0.609, 0.465, 0.563, 0.460, 0.517, 0.168, 0.413, 0.156, 0.509, 0.053, 0.385, 0.101, 0.326, 0.158, 0.326, 0.108, 0.413, 0.156, 0.385, 0.101, 0.509, 0.053, 0.509, -0.053, 0.761, 0.043, 0.761, -0.043, 0.830, 0.030, 0.830, -0.030, 0.952, -0.196, 0.933, -0.196, 0.907, -0.008, 0.830, 0.030, 0.933, 0.196, 0.952, 0.196, 0.907, 0.008, 0.830, 0.030, 0.907, -0.008, 1.000, 0.003, 0.907, 0.008, 0.354, -0.058, 0.509, -0.053, 0.413, -0.156, 0.385, -0.101, 0.326, -0.158, 0.326, -0.108, 0.385, -0.101, -10000};
 static const double vehiclePoly_aircraftEngines[] = {0.326, -0.158, 0.413, -0.156, 0.326, -0.108, 0.385, -0.101, 0.385, -0.101, 0.385, 0.101, 0.385, 0.101, 0.326, 0.108, 0.413, 0.156, 0.326, 0.158, -10000};
+static const double vehiclePoly_eVTOLFuselage[] = {0.52, 0.0, 0.20, 0.0, 0.10, 0.16, 0.10, 0.32, 0.22, 0.46, 0.80, 0.46, 0.92, 0.32, 0.98, 0.18, 1.00, 0.0, 0.98, -0.18, 0.92, -0.32, 0.80, -0.46, 0.22, -0.46, 0.10, -0.32, 0.10, -0.16, 0.20, 0.0, -10000};
+static const double vehiclePoly_eVTOLTailCone[] = {0.08, 0.0, 0.00, 0.0, 0.08, 0.18, 0.20, 0.10, 0.20, -0.10, 0.08, -0.18, 0.00, 0.0, -10000};
+static const double vehiclePoly_eVTOLCanopy[] = {0.62, 0.0, 0.40, 0.0, 0.38, 0.22, 0.46, 0.30, 0.74, 0.30, 0.80, 0.22, 0.80, -0.22, 0.74, -0.30, 0.46, -0.30, 0.38, -0.22, 0.40, 0.0, -10000};
+static const double vehiclePoly_eVTOLWingUpper[] = {0.50, 0.26, 0.18, 0.22, 0.82, 0.22, 0.82, 0.30, 0.18, 0.30, 0.18, 0.22, -10000};
+static const double vehiclePoly_eVTOLWingLower[] = {0.50, -0.26, 0.18, -0.22, 0.82, -0.22, 0.82, -0.30, 0.18, -0.30, 0.18, -0.22, -10000};
+static const double vehiclePoly_eVTOLTailBoom[] = {0.98, 0.0, 0.92, -0.03, 0.98, -0.03, 1.00, 0.0, 0.98, 0.03, 0.92, 0.03, 0.92, -0.03, -10000};
 //static const double vehiclePoly_Rickshaw[] = { 0.5, 0,  0.25, 0.45,  0.25, 0.5, 0.8, 0.15,     0.8, -0.15, 0.25, -0.5, 0.25, -0.45,     -10000 };
 
 // ===========================================================================
@@ -534,6 +540,45 @@ GUIBaseVehicleHelper::drawAction_drawVehicleAsPoly(const GUIVisualizationSetting
             GLHelper::drawFilledCircle(-.01, 6);
             GLHelper::popMatrix();
             break;
+        case SUMOVehicleShape::EVTOL: {
+            // Keep eVTOL in vector/polygon style like cars for crisp scaling.
+            const RGBColor rotorColor(10, 8, 16);
+            drawPoly(vehiclePoly_eVTOLFuselage, 4);
+            GLHelper::setColor(current.changedBrightness(-28));
+            drawPoly(vehiclePoly_eVTOLTailCone, 4.5);
+            GLHelper::setColor(current.changedBrightness(36));
+            drawPoly(vehiclePoly_eVTOLCanopy, 5);
+            GLHelper::setColor(rotorColor);
+            drawPoly(vehiclePoly_eVTOLWingUpper, 5.5);
+            drawPoly(vehiclePoly_eVTOLWingLower, 5.5);
+            drawPoly(vehiclePoly_eVTOLTailBoom, 5.5);
+
+            auto drawRotor = [&](const double x, const double y, const double z) {
+                GLHelper::pushMatrix();
+                glTranslated(x, y, z);
+                glScaled(0.085, 0.14, 1);
+                GLHelper::drawFilledCircle(1, 14);
+                GLHelper::popMatrix();
+                GLHelper::pushMatrix();
+                glTranslated(x, y, z + 0.02);
+                glScaled(0.03, 0.05, 1);
+                GLHelper::setColor(rotorColor.changedBrightness(18));
+                GLHelper::drawFilledCircle(1, 10);
+                GLHelper::popMatrix();
+                GLHelper::setColor(rotorColor);
+            };
+            drawRotor(0.25, 0.34, 0.58);
+            drawRotor(0.75, 0.34, 0.58);
+            drawRotor(0.25, -0.34, 0.58);
+            drawRotor(0.75, -0.34, 0.58);
+
+            GLHelper::pushMatrix();
+            glTranslated(1.00, 0.0, 0.58);
+            glScaled(0.02, 0.10, 1);
+            GLHelper::drawFilledCircle(1, 12);
+            GLHelper::popMatrix();
+            break;
+        }
 
         case SUMOVehicleShape::SCOOTER: {
             RGBColor darker2 = current.changedBrightness(-25);
@@ -724,6 +769,7 @@ GUIBaseVehicleHelper::drawAction_drawVehicleAsPoly(const GUIVisualizationSetting
         case SUMOVehicleShape::POLICE:
         case SUMOVehicleShape::RICKSHAW:
         case SUMOVehicleShape::AIRCRAFT:
+        case SUMOVehicleShape::EVTOL:
         case SUMOVehicleShape::SCOOTER:
             break;
         default: // same as passenger/sedan
