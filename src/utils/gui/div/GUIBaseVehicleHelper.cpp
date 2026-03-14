@@ -100,9 +100,8 @@ static const double vehiclePoly_aircraftEngines[] = {0.326, -0.158, 0.413, -0.15
 static const double vehiclePoly_eVTOLFuselage[] = {0.52, 0.0, 0.20, 0.0, 0.10, 0.16, 0.10, 0.32, 0.22, 0.46, 0.80, 0.46, 0.92, 0.32, 0.98, 0.18, 1.00, 0.0, 0.98, -0.18, 0.92, -0.32, 0.80, -0.46, 0.22, -0.46, 0.10, -0.32, 0.10, -0.16, 0.20, 0.0, -10000};
 static const double vehiclePoly_eVTOLTailCone[] = {0.08, 0.0, 0.00, 0.0, 0.08, 0.18, 0.20, 0.10, 0.20, -0.10, 0.08, -0.18, 0.00, 0.0, -10000};
 static const double vehiclePoly_eVTOLCanopy[] = {0.62, 0.0, 0.40, 0.0, 0.38, 0.22, 0.46, 0.30, 0.74, 0.30, 0.80, 0.22, 0.80, -0.22, 0.74, -0.30, 0.46, -0.30, 0.38, -0.22, 0.40, 0.0, -10000};
-static const double vehiclePoly_eVTOLWingUpper[] = {0.50, 0.26, 0.18, 0.22, 0.82, 0.22, 0.82, 0.30, 0.18, 0.30, 0.18, 0.22, -10000};
-static const double vehiclePoly_eVTOLWingLower[] = {0.50, -0.26, 0.18, -0.22, 0.82, -0.22, 0.82, -0.30, 0.18, -0.30, 0.18, -0.22, -10000};
-static const double vehiclePoly_eVTOLTailBoom[] = {0.98, 0.0, 0.92, -0.03, 0.98, -0.03, 1.00, 0.0, 0.98, 0.03, 0.92, 0.03, 0.92, -0.03, -10000};
+static const double vehiclePoly_eVTOLMainWing[] = {0.50, 0.0, 0.18, -0.16, 0.86, -0.16, 0.94, 0.0, 0.86, 0.16, 0.18, 0.16, 0.18, -0.16, -10000};
+static const double vehiclePoly_eVTOLTailPlane[] = {0.14, 0.0, 0.02, -0.11, 0.18, -0.11, 0.26, 0.0, 0.18, 0.11, 0.02, 0.11, 0.02, -0.11, -10000};
 //static const double vehiclePoly_Rickshaw[] = { 0.5, 0,  0.25, 0.45,  0.25, 0.5, 0.8, 0.15,     0.8, -0.15, 0.25, -0.5, 0.25, -0.45,     -10000 };
 
 // ===========================================================================
@@ -543,15 +542,15 @@ GUIBaseVehicleHelper::drawAction_drawVehicleAsPoly(const GUIVisualizationSetting
         case SUMOVehicleShape::EVTOL: {
             // Keep eVTOL in vector/polygon style like cars for crisp scaling.
             const RGBColor rotorColor(10, 8, 16);
+            const RGBColor rotorCore(90, 205, 225);
             drawPoly(vehiclePoly_eVTOLFuselage, 4);
             GLHelper::setColor(current.changedBrightness(-28));
             drawPoly(vehiclePoly_eVTOLTailCone, 4.5);
             GLHelper::setColor(current.changedBrightness(36));
             drawPoly(vehiclePoly_eVTOLCanopy, 5);
             GLHelper::setColor(rotorColor);
-            drawPoly(vehiclePoly_eVTOLWingUpper, 5.5);
-            drawPoly(vehiclePoly_eVTOLWingLower, 5.5);
-            drawPoly(vehiclePoly_eVTOLTailBoom, 5.5);
+            drawPoly(vehiclePoly_eVTOLMainWing, 5.5);
+            drawPoly(vehiclePoly_eVTOLTailPlane, 5.4);
 
             auto drawRotor = [&](const double x, const double y, const double z) {
                 GLHelper::pushMatrix();
@@ -561,22 +560,16 @@ GUIBaseVehicleHelper::drawAction_drawVehicleAsPoly(const GUIVisualizationSetting
                 GLHelper::popMatrix();
                 GLHelper::pushMatrix();
                 glTranslated(x, y, z + 0.02);
-                glScaled(0.03, 0.05, 1);
-                GLHelper::setColor(rotorColor.changedBrightness(18));
+                glScaled(0.045, 0.075, 1);
+                GLHelper::setColor(rotorCore);
                 GLHelper::drawFilledCircle(1, 10);
                 GLHelper::popMatrix();
                 GLHelper::setColor(rotorColor);
             };
-            drawRotor(0.25, 0.34, 0.58);
-            drawRotor(0.75, 0.34, 0.58);
-            drawRotor(0.25, -0.34, 0.58);
-            drawRotor(0.75, -0.34, 0.58);
-
-            GLHelper::pushMatrix();
-            glTranslated(1.00, 0.0, 0.58);
-            glScaled(0.02, 0.10, 1);
-            GLHelper::drawFilledCircle(1, 12);
-            GLHelper::popMatrix();
+            drawRotor(0.30, 0.34, 0.58);
+            drawRotor(0.76, 0.34, 0.58);
+            drawRotor(0.30, -0.34, 0.58);
+            drawRotor(0.76, -0.34, 0.58);
             break;
         }
 

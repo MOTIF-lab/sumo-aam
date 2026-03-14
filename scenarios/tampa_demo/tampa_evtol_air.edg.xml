@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edges xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/edges_file.xsd">
+    <edge id="air_north_wc_e" from="airWN" to="airCN" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_north_wc_w" from="airCN" to="airWN" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_north_ce_e" from="airCN" to="airEN" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_north_ce_w" from="airEN" to="airCN" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+
+    <edge id="air_mid_wc_e" from="airWM" to="airCM" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_mid_wc_w" from="airCM" to="airWM" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_mid_ce_e" from="airCM" to="airEM" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_mid_ce_w" from="airEM" to="airCM" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+
+    <edge id="air_south_wc_e" from="airWS" to="airCS" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_south_wc_w" from="airCS" to="airWS" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_south_ce_e" from="airCS" to="airES" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_south_ce_w" from="airES" to="airCS" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+
+    <edge id="air_west_sm_n" from="airWS" to="airWM" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_west_sm_s" from="airWM" to="airWS" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_west_mn_n" from="airWM" to="airWN" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_west_mn_s" from="airWN" to="airWM" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+
+    <edge id="air_center_sm_n" from="airCS" to="airCM" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_center_sm_s" from="airCM" to="airCS" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_center_mn_n" from="airCM" to="airCN" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_center_mn_s" from="airCN" to="airCM" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+
+    <edge id="air_east_sm_n" from="airES" to="airEM" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_east_sm_s" from="airEM" to="airES" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_east_mn_n" from="airEM" to="airEN" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_east_mn_s" from="airEN" to="airEM" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+
+    <edge id="air_diag_nw_se" from="airWN" to="airES" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_diag_se_nw" from="airES" to="airWN" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_diag_ne_sw" from="airEN" to="airWS" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+    <edge id="air_diag_sw_ne" from="airWS" to="airEN" numLanes="1" speed="69.44" width="5.0" allow="evtol"/>
+</edges>

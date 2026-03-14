@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <poly id="airlane_north" type="airlane" color="235,45,45,150" fill="false" lineWidth="34" layer="-2"
+          shape="3000.00,27000.00 12000.00,27000.00 21000.00,27000.00"/>
+    <poly id="airlane_mid" type="airlane" color="235,45,45,150" fill="false" lineWidth="34" layer="-2"
+          shape="3000.00,15500.00 12000.00,15500.00 21000.00,15500.00"/>
+    <poly id="airlane_south" type="airlane" color="235,45,45,150" fill="false" lineWidth="34" layer="-2"
+          shape="3000.00,4000.00 12000.00,4000.00 21000.00,4000.00"/>
+
+    <poly id="airlane_west" type="airlane" color="235,45,45,150" fill="false" lineWidth="34" layer="-2"
+          shape="3000.00,4000.00 3000.00,15500.00 3000.00,27000.00"/>
+    <poly id="airlane_center" type="airlane" color="235,45,45,150" fill="false" lineWidth="34" layer="-2"
+          shape="12000.00,4000.00 12000.00,15500.00 12000.00,27000.00"/>
+    <poly id="airlane_east" type="airlane" color="235,45,45,150" fill="false" lineWidth="34" layer="-2"
+          shape="21000.00,4000.00 21000.00,15500.00 21000.00,27000.00"/>
+
+    <poly id="airlane_diag_nw_se" type="airlane_express" color="180,0,0,185" fill="false" lineWidth="40" layer="-1"
+          shape="3000.00,27000.00 21000.00,4000.00"/>
+    <poly id="airlane_diag_sw_ne" type="airlane_express" color="180,0,0,185" fill="false" lineWidth="40" layer="-1"
+          shape="3000.00,4000.00 21000.00,27000.00"/>
+</additional>

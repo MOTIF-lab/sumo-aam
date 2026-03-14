@@ -28,6 +28,7 @@ import traceback
 import webbrowser
 import datetime
 import json
+import re
 import threading
 import subprocess
 import tempfile
@@ -47,7 +48,15 @@ import tileGet
 import sumolib
 from webWizard.SimpleWebSocketServer import SimpleWebSocketServer, WebSocket
 
-SUMO_HOME = os.environ.get("SUMO_HOME", os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+LOCAL_SUMO_HOME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+ENV_SUMO_HOME = os.environ.get("SUMO_HOME")
+# Prefer binaries from this checkout when available to avoid mixing tool/script
+# versions with system-wide SUMO installs.
+if os.path.exists(os.path.join(LOCAL_SUMO_HOME, "bin", "sumo")):
+    SUMO_HOME = LOCAL_SUMO_HOME
+else:
+    SUMO_HOME = ENV_SUMO_HOME if ENV_SUMO_HOME else LOCAL_SUMO_HOME
+os.environ["SUMO_HOME"] = SUMO_HOME
 DEFAULT_PORT = 8010
 
 try:
@@ -278,6 +287,29 @@ class Builder(object):
 
         self.report("Converting map data")
         osmBuild.build(options)
+        netPath = os.path.join(self.tmp, self.files["net"])
+        if not os.path.exists(netPath):
+            overpassHint = ""
+            osmPath = self.files["osm"]
+            if os.path.exists(osmPath):
+                try:
+                    if osmPath.endswith(".gz"):
+                        import gzip
+                        with gzip.open(osmPath, "rt", encoding="utf-8", errors="replace") as f:
+                            osmText = f.read()
+                    else:
+                        with open(osmPath, "rt", encoding="utf-8", errors="replace") as f:
+                            osmText = f.read()
+                    m = re.search(r"<remark>(.*?)</remark>", osmText, re.DOTALL)
+                    if m is not None:
+                        overpassHint = " Overpass remark: %s" % " ".join(m.group(1).split())
+                except Exception:
+                    # keep fallback message if diagnostic extraction fails
+                    pass
+            raise RuntimeError(
+                "Network conversion failed (missing '%s'). This often means the selected OSM area is too large for Overpass.%s"
+                % (self.files["net"], overpassHint)
+            )
         ptOptions = None
         hasPTFlows = False
         begin = self.data.get("begin", 0)

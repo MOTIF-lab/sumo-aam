@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="tampaEVTOL" vClass="evtol" guiShape="evtol" imgFile="../common/evtol_gemini_clean.png" color="255,255,255"
+           accel="3.5" decel="4.0" sigma="0.0" length="4.8" width="4.4" maxSpeed="69.44" personCapacity="4">
+        <param key="scaleVisual" value="2.0"/>
+    </vType>
+
+    <route id="airlane_north_eastbound" edges="air_north_wc_e air_north_ce_e"/>
+    <route id="airlane_north_westbound" edges="air_north_ce_w air_north_wc_w"/>
+    <route id="airlane_mid_eastbound" edges="air_mid_wc_e air_mid_ce_e"/>
+    <route id="airlane_mid_westbound" edges="air_mid_ce_w air_mid_wc_w"/>
+    <route id="airlane_south_eastbound" edges="air_south_wc_e air_south_ce_e"/>
+    <route id="airlane_south_westbound" edges="air_south_ce_w air_south_wc_w"/>
+
+    <route id="airlane_west_northbound" edges="air_west_sm_n air_west_mn_n"/>
+    <route id="airlane_west_southbound" edges="air_west_mn_s air_west_sm_s"/>
+    <route id="airlane_center_northbound" edges="air_center_sm_n air_center_mn_n"/>
+    <route id="airlane_center_southbound" edges="air_center_mn_s air_center_sm_s"/>
+    <route id="airlane_east_northbound" edges="air_east_sm_n air_east_mn_n"/>
+    <route id="airlane_east_southbound" edges="air_east_mn_s air_east_sm_s"/>
+
+    <route id="airlane_ring_clockwise"
+           edges="air_south_wc_e air_south_ce_e air_east_sm_n air_east_mn_n air_north_ce_w air_north_wc_w air_west_mn_s air_west_sm_s"/>
+    <route id="airlane_ring_counterclockwise"
+           edges="air_west_sm_n air_west_mn_n air_north_wc_e air_north_ce_e air_east_mn_s air_east_sm_s air_south_ce_w air_south_wc_w"/>
+
+    <route id="airlane_diag_nw_to_se" edges="air_diag_nw_se"/>
+    <route id="airlane_diag_se_to_nw" edges="air_diag_se_nw"/>
+    <route id="airlane_diag_ne_to_sw" edges="air_diag_ne_sw"/>
+    <route id="airlane_diag_sw_to_ne" edges="air_diag_sw_ne"/>
+
+    <flow id="evtol_north_east" type="tampaEVTOL" route="airlane_north_eastbound" begin="20" end="1600" period="42"/>
+    <flow id="evtol_north_west" type="tampaEVTOL" route="airlane_north_westbound" begin="30" end="1600" period="44"/>
+    <flow id="evtol_mid_east" type="tampaEVTOL" route="airlane_mid_eastbound" begin="40" end="1600" period="37"/>
+    <flow id="evtol_mid_west" type="tampaEVTOL" route="airlane_mid_westbound" begin="50" end="1600" period="39"/>
+    <flow id="evtol_south_east" type="tampaEVTOL" route="airlane_south_eastbound" begin="60" end="1600" period="46"/>
+    <flow id="evtol_south_west" type="tampaEVTOL" route="airlane_south_westbound" begin="70" end="1600" period="48"/>
+
+    <flow id="evtol_west_north" type="tampaEVTOL" route="airlane_west_northbound" begin="80" end="1600" period="40"/>
+    <flow id="evtol_west_south" type="tampaEVTOL" route="airlane_west_southbound" begin="90" end="1600" period="42"/>
+    <flow id="evtol_center_north" type="tampaEVTOL" route="airlane_center_northbound" begin="100" end="1600" period="35"/>
+    <flow id="evtol_center_south" type="tampaEVTOL" route="airlane_center_southbound" begin="110" end="1600" period="36"/>
+    <flow id="evtol_east_north" type="tampaEVTOL" route="airlane_east_northbound" begin="120" end="1600" period="41"/>
+    <flow id="evtol_east_south" type="tampaEVTOL" route="airlane_east_southbound" begin="130" end="1600" period="43"/>
+
+    <flow id="evtol_ring_cw" type="tampaEVTOL" route="airlane_ring_clockwise" begin="145" end="1600" period="70"/>
+    <flow id="evtol_ring_ccw" type="tampaEVTOL" route="airlane_ring_counterclockwise" begin="155" end="1600" period="72"/>
+    <flow id="evtol_diag_nw_se" type="tampaEVTOL" route="airlane_diag_nw_to_se" begin="165" end="1600" period="58"/>
+    <flow id="evtol_diag_se_nw" type="tampaEVTOL" route="airlane_diag_se_to_nw" begin="175" end="1600" period="60"/>
+    <flow id="evtol_diag_ne_sw" type="tampaEVTOL" route="airlane_diag_ne_to_sw" begin="185" end="1600" period="57"/>
+    <flow id="evtol_diag_sw_ne" type="tampaEVTOL" route="airlane_diag_sw_to_ne" begin="195" end="1600" period="59"/>
+</routes>

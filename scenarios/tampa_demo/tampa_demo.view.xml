@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewsettings>
+    <scheme name="real world">
+        <vehicles vehicleMode="0" vehicleQuality="3" vehicle_minSize="1.00" vehicle_exaggeration="1.00"
+                  vehicle_constantSize="0" vehicle_constantSizeSelected="0" showBlinker="1" drawMinGap="0"
+                  drawBrakeGap="0" showBTRange="0" showRouteIndex="0" scaleLength="1" drawReversed="0"
+                  showParkingInfo="0" showChargingInfo="0" vehicleParam="PARAM_NUMERICAL"
+                  vehicleScaleParam="PARAM_NUMERICAL" vehicleTextParam="PARAM_TEXT"/>
+    </scheme>
+    <delay value="20"/>
+</viewsettings>

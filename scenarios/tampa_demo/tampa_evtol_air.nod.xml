@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
+    <node id="airWN" x="3000.00" y="27000.00" type="priority"/>
+    <node id="airCN" x="12000.00" y="27000.00" type="priority"/>
+    <node id="airEN" x="21000.00" y="27000.00" type="priority"/>
+
+    <node id="airWM" x="3000.00" y="15500.00" type="priority"/>
+    <node id="airCM" x="12000.00" y="15500.00" type="priority"/>
+    <node id="airEM" x="21000.00" y="15500.00" type="priority"/>
+
+    <node id="airWS" x="3000.00" y="4000.00" type="priority"/>
+    <node id="airCS" x="12000.00" y="4000.00" type="priority"/>
+    <node id="airES" x="21000.00" y="4000.00" type="priority"/>
+</nodes>
