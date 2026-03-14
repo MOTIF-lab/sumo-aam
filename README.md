@@ -1,7 +1,7 @@
 <a href="https://sumo.dlr.de/docs"><p align="center"><img width=50% src="https://raw.githubusercontent.com/eclipse/sumo/main/docs/web/docs/images/sumo-logo.svg"></p></a>
 
-Eclipse SUMO - Simulation of Urban MObility
-===========================================
+SUMO-AAM: SUMO Extension for eVTOL Integration
+==============================================
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18406080.svg)](https://doi.org/10.5281/zenodo.18406080)
 [![Windows](https://github.com/eclipse-sumo/sumo/actions/workflows/windows.yml/badge.svg)](https://github.com/eclipse-sumo/sumo/actions/workflows/windows.yml)
 [![Linux](https://github.com/eclipse-sumo/sumo/actions/workflows/linux.yml/badge.svg)](https://github.com/eclipse-sumo/sumo/actions/workflows/linux.yml)
@@ -10,8 +10,39 @@ Eclipse SUMO - Simulation of Urban MObility
 [![Translation status](https://hosted.weblate.org/widgets/eclipse-sumo/-/svg-badge.svg)](https://hosted.weblate.org/engage/eclipse-sumo/)
 ![Repo Size](https://img.shields.io/github/repo-size/eclipse/sumo.svg)
 
-What is SUMO
-------------
+What is SUMO-AAM
+----------------
+
+This repository is an extension of Eclipse SUMO to support Advanced Air Mobility (AAM), including eVTOL operations and simulation.
+
+Compared with upstream SUMO, this fork adds:
+
+- An `evtol` vehicle class integration (based on SUMO aerial mobility patterns).
+- eVTOL-focused GUI rendering and custom icons.
+- Mixed simulations with road traffic (cars) and aerial traffic (airlanes + eVTOL routes).
+- End-to-end demo scenarios, including a Tampa mixed-mode network.
+
+Figure: eVTOL icon used in SUMO GUI (current)
+
+<p align="center">
+  <img width="220" src="scenarios/common/evtol_gemini_clean.png" alt="eVTOL top-view icon">
+</p>
+
+Figure: additional icon variants explored during design
+
+<p align="center">
+  <img width="180" src="scenarios/common/evtol_side_purple.png" alt="eVTOL side icon">
+  <img width="90" src="scenarios/common/evtol_icon_purple.png" alt="eVTOL front icon">
+</p>
+
+Quick start (Tampa eVTOL + road traffic demo):
+
+```bash
+bin/sumo-gui -c scenarios/tampa_demo/tampa_demo.sumocfg
+```
+
+Upstream SUMO background
+------------------------
 
 ["Simulation of Urban MObility" (SUMO)](https://sumo.dlr.de/) is an open source,
 highly portable, microscopic traffic simulation package designed to handle
