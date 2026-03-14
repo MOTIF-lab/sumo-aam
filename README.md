@@ -28,13 +28,6 @@ Figure: eVTOL icon used in SUMO GUI (current)
   <img width="220" src="scenarios/common/evtol_gemini_clean.png" alt="eVTOL top-view icon">
 </p>
 
-Figure: additional icon variants explored during design
-
-<p align="center">
-  <img width="180" src="scenarios/common/evtol_side_purple.png" alt="eVTOL side icon">
-  <img width="90" src="scenarios/common/evtol_icon_purple.png" alt="eVTOL front icon">
-</p>
-
 Quick start (Tampa eVTOL + road traffic demo):
 
 ```bash
